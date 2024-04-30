@@ -30,8 +30,6 @@ int BusTransitCompany::getNumberOfTrips() const {
     return trips.size();
 }
 
-#include "BusTransitCompany.h"
-
 const Trip& BusTransitCompany::getTrip(int index) const {
     if (index >= 0 && index < trips.size()) {
         // Return a reference to the trip at the given index

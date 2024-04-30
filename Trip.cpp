@@ -42,6 +42,6 @@ std::string Trip::getDetails() const {
 // Implementation of the output operator (outside the class definition)
 std::ostream& operator<<(std::ostream& os, const Trip& trip) {
     os << "Trip Details:" << std::endl;
-    os << trip.getDetails(); // Use the existing getDetails() method
+    os << trip.getDetails();
     return os;
 }
