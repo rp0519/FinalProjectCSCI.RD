@@ -21,7 +21,7 @@ void BusTransitCompany::displayAllTrips() const {
     } else {
         std::cout << "All Trips:" << std::endl;
         for (size_t i = 0; i < trips.size(); ++i) {
-            std::cout << "[" << i << "] " << trips[i] << std::endl;
+            std::cout << "[" << i + 1 << "] " << trips[i] << std::endl;
         }
     }
 }
