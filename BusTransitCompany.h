@@ -14,11 +14,10 @@ private:
 
 public:
     void addTrip(const Trip& trip);
-    void removeTrip(int index);
+    void cancelTrip(int index);
     void displayAllTrips() const;
-    int numberOfTrips() const;
+    int getNumberOfTrips() const;
     const Trip& getTrip(int index) const;
 };
-
 
 #endif //FINAL_BUSTRANSITCOMPANY_H

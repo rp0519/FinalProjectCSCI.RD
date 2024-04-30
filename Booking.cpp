@@ -1,13 +1,8 @@
-//
-// Created by Riley on 3/24/2024.
-//
-
 #include "Booking.h"
 #include <iostream>
 
-Booking::Booking(Trip t, int travelers, string method, bool isStudent, bool isMilitary, bool isClubMember) :
-        trip(t), numTravelers(travelers), discountPercentage(0) {
-
+Booking::Booking(Trip t, int travelers, string method, bool student, bool military, bool clubMember) :
+        trip(t), numTravelers(travelers), discountPercentage(0), isStudent(student), isMilitary(military), isClubMember(clubMember) {
     // Apply discounts based on the method used/status
     if (method == "online" || isStudent) {
         discountPercentage += 0.15; // 15% off for online orders or students
@@ -20,16 +15,6 @@ Booking::Booking(Trip t, int travelers, string method, bool isStudent, bool isMi
     }
 
     calculateTotalPrice();
-}
-
-Booking& Booking::operator=(Booking&& other) noexcept {
-    if (this != &other) {
-        trip = std::move(other.trip);
-        numTravelers = other.numTravelers;
-        totalPrice = other.totalPrice;
-        discountPercentage = other.discountPercentage;
-    }
-    return *this;
 }
 
 void Booking::calculateTotalPrice() {

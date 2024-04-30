@@ -6,25 +6,31 @@
 #define FINAL_TRIP_H
 
 #include <string>
-using namespace std;
 
 class Trip {
 private:
-    string source;
-    string destination;
+    std::string source;
+    std::string destination;
     float distance; // in miles
-    string driver;
-    string busModel;
+    std::string driver;
+    std::string busModel;
     int maxTravelers; // Max number of travelers
 
 public:
-    Trip(string src, string dest, float dist, string drv, string model, int max);
-    string getSource();
-    string getDestination();
-    float getDistance();
-    string getDriver();
-    string getBusModel();
-    int getMaxTravelers();
+    Trip(const std::string& src, const std::string& dest, float dist, const std::string& drv, const std::string& model, int max);
+
+    std::string getSource() const;
+    std::string getDestination() const;
+    float getDistance() const;
+    std::string getDriver() const;
+    std::string getBusModel() const;
+    int getMaxTravelers() const;
+    std::string getDetails() const; // Existing method
+
+    // Friend function to define the output operator for Trip
+    friend std::ostream& operator<<(std::ostream& os, const Trip& trip);
 };
+
+
 
 #endif //FINAL_TRIP_H

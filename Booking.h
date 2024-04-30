@@ -15,15 +15,16 @@ private:
     int numTravelers;
     float totalPrice;
     float discountPercentage;
+    bool isStudent;
+    bool isMilitary;
+    bool isClubMember;
     const float pricePerMile = 0.5; // 0.5 cents per mile
 
 public:
     Booking(Trip t, int travelers, string method, bool isStudent, bool isMilitary, bool isClubMember);
-    Booking& operator=(Booking&& other) noexcept;
     void calculateTotalPrice();
     void displayBookingDetails();
     void cancelBooking();
 };
 
 #endif //FINAL_BOOKING_H
-

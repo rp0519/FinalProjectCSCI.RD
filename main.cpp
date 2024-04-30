@@ -33,7 +33,7 @@ int main() {
             int tripNumber;
             cin >> tripNumber;
 
-            if (tripNumber >= 1 && tripNumber <= company.getTrip()) {
+            if (tripNumber >= 1 && tripNumber <= company.getNumberOfTrips()) {
                 Trip selectedTrip = company.getTrip(tripNumber - 1);
 
                 cout << "How many travelers? ";
@@ -43,11 +43,21 @@ int main() {
                 cout << "Are you a student? (yes/no) ";
                 string studentInput;
                 cin >> studentInput;
-
                 bool isStudent = (studentInput == "yes" || studentInput == "Yes" || studentInput == "YES");
 
+                cout << "Are you military or a veteran? (yes/no) ";
+                string militaryInput;
+                cin >> militaryInput;
+                bool isMilitary = (militaryInput == "yes" || militaryInput == "Yes" || militaryInput == "YES");
+
+                cout << "Are you a member of the BUS_TRIPS club? (yes/no) ";
+                string clubInput;
+                cin >> clubInput;
+                bool isClubMember = (clubInput == "yes" || clubInput == "Yes" || clubInput == "YES");
+
                 // Book the ticket
-                company.cancelBooking(tripNumber - 1, numTravelers, isStudent);
+                Booking booking(selectedTrip, numTravelers, "online", isStudent, isMilitary, isClubMember);
+                booking.displayBookingDetails();
             } else {
                 cout << "Invalid trip number. Please try again." << endl;
             }
@@ -57,9 +67,9 @@ int main() {
             int ticketNumber;
             cin >> ticketNumber;
 
-            if (ticketNumber >= 1 && ticketNumber <= company.getNumberOfBookings()) {
+            if (ticketNumber >= 1 && ticketNumber <= company.getNumberOfTrips()) {
                 // Cancel the ticket
-                company.cancelTicket(ticketNumber - 1);
+                company.cancelTrip(ticketNumber - 1);
             } else {
                 cout << "Invalid ticket number. Please try again." << endl;
             }
